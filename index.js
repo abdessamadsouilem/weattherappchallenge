@@ -1,5 +1,10 @@
 const express = require("express")
 const server = express();
+const connection = require("./config/db")
+require("dotenv").config();
+const PORT = process.env.PORT || 8080
+
+
 
 
 server.get("/",(req,res)=>{
@@ -10,8 +15,9 @@ server.get("/",(req,res)=>{
 
 
 
-server.listen(3000,()=>{
+server.listen(PORT,()=>{
     console.log('====================================');
-    console.log("server up and running ");
+    console.log("server up and running at "+PORT);
+    connection();
     console.log('====================================');
 })
