@@ -5,11 +5,9 @@ require("dotenv").config();
 const PORT = process.env.PORT || 8080
 
 
+const weatherRoutes = require('./routes/weatherRoutes');
+server.use('/api/v1/weather', weatherRoutes);
 
-
-server.get("/",(req,res)=>{
-    res.json({message:"we made it here"})
-})
 
 
 
