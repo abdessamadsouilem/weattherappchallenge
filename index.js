@@ -19,6 +19,12 @@ const corsOptions = {
 server.use(cors(corsOptions));
 
 
+server.use((err, req, res, next) => {
+    console.error(err.stack); // Log error stack
+    res.status(500).send('you are not allowd to get this page'); // Send generic error message to client
+});
+
+
 
 
 const weatherRoutes = require('./routes/weatherRoutes');
